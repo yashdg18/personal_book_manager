@@ -1,0 +1,13 @@
+import { HTMLAttributes } from 'react';
+
+export function Card({ className = '', children, ...props }: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={`rounded-xl border border-border bg-card p-5 shadow-sm hover:shadow-md
+        transition-shadow duration-200 ${className}`}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
