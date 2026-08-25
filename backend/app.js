@@ -19,7 +19,9 @@ app.use(cookieParser());
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
 }
-
+app.get('/', (req, res) => {
+  res.status(200).json({ success: true, message: 'Personal Book Manager API', docs: '/api/health' });
+});
 // --- Health check (used to verify the server is alive, independent of DB) ---
 app.get('/api/health', (req, res) => {
   res.status(200).json({ success: true, message: 'API is running' });
